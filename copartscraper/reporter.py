@@ -4,9 +4,10 @@ from typing import List
 
 from .config import IMAGE_PATH, REPORTS_PATH
 
-def generate_html(changed_cars: List[dict]) -> None:
+def generate_html(changed_cars: List[dict]) -> str:
     timestamp = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
     filename = f"{timestamp}.html"
+    filepath = os.path.join(REPORTS_PATH, filename)
 
     rows = ""
     for car in changed_cars:
@@ -40,5 +41,7 @@ def generate_html(changed_cars: List[dict]) -> None:
     </html>
     """
 
-    with open(os.path.join(REPORTS_PATH, filename), "w") as f:
+    with open(filepath, "w") as f:
         f.write(html)
+
+    return filepath
