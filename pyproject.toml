@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "copartscraper"
+version = "0.1.0"
+description = "Copart scraping tool"
+authors = [
+    { name = "Omar Owis", email = "oomar@vt.edu" }
+]
+dependencies = [
+    "selenium>=4.40.0",
+    "winotify"
+]
+
+[tool.setuptools]
+packages = ["copartscraper"]
