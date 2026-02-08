@@ -12,7 +12,7 @@ def parse_args():
     p = argparse.ArgumentParser(description="Copart Manuel Car Webscraper")
     
     p.add_argument('-s', '--show-browser', dest='headless', action='store_false',
-                   help="Run Selenium in headless mode")
+                   help="Show the Chrome browser")
     return p.parse_args()
 
 def main():
