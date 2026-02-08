@@ -1,0 +1,9 @@
+IMAGE_PATH = "./images/"
+REPORTS_PATH = "./reports/"
+TIMEOUT = 10
+STATIC_WAIT = 3
+
+AUCTION_NAMES = [
+    "OK - OKLAHOMA CITY",
+    "KS - WICHITA",
+]

@@ -1,0 +1,4 @@
+images/
+reports/
+*.db
+__pycache__/
