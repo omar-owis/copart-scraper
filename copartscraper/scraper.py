@@ -84,17 +84,14 @@ class CopartScraper:
                 ))
             db.delete_lot(lot_id)
 
-        self.driver.quit()
-
-    def _has_changed(self, lot, old_data) -> bool:
+    def _has_changed(self, lot: LotData, old_lot: LotData) -> bool:
         """Check if a lot has any meaningful changes."""
-        _, _, _, name, odometer, conditions, _, _, current_bid, buy_now = old_data.as_tuple()
         return (
-            lot.name != name
-            or lot.odometer != odometer
-            or str(lot.conditions) != str(conditions)
-            or lot.current_bid != current_bid
-            or lot.buy_now != buy_now
+            lot.name != old_lot.name
+            or lot.odometer != old_lot.odometer
+            or lot.conditions != old_lot.conditions
+            or lot.current_bid != old_lot.current_bid
+            or lot.buy_now != old_lot.buy_now
         )
 
     def _get_image_id(self, lot_id: int) -> str:
@@ -264,9 +261,6 @@ class CopartScraper:
 
         next_btn.click()
         return True
-
-
-
 
     def close(self) -> None:
         self.driver.quit()

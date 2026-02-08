@@ -43,4 +43,18 @@ class CarCondition:
         return cls(parts[0].strip(), parts[1].strip(), parts[2].strip())
 
     def __str__(self):
-        return f"Title: {self.title} | {self.condition1} | {self.condition2}"
+        return f"{self.title} | {self.condition1} | {self.condition2}"
+
+    def __eq__(self, other):
+        if not isinstance(other, CarCondition):
+            return NotImplemented
+        return (
+            self.title == other.title and
+            self.condition1 == other.condition1 and
+            self.condition2 == other.condition2
+        )
+
+    def __ne__(self, other):
+        if not isinstance(other, CarCondition):
+            return True
+        return not (self == other)

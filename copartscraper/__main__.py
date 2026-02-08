@@ -29,6 +29,7 @@ def main():
 
     generate_html(changed_cars)
     db.close()
+    scraper.close()
 
 if __name__ == "__main__":
     main()

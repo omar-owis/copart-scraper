@@ -44,7 +44,7 @@ class CopartDatabase:
             (lot_id,),
         )
         row = cur.fetchone()
-        return self._row_to_lot(row) if row else None
+        return self._row_to_lot(row)
 
     def delete_lot(self, lot_id: int) -> None:
         cur = self.conn.cursor()
@@ -79,6 +79,9 @@ class CopartDatabase:
         self.conn.commit()
 
     def _row_to_lot(self, row: tuple) -> LotData:
+        if not row:
+            return None
+
         return LotData(
             image_id=row[0],
             lot_url=row[1],
