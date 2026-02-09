@@ -37,7 +37,6 @@ git clone https://github.com/omar-owis/copart-scraper.git
 cd copartscraper
 ```
 
-
 ### 2. Run setup
 
 ```
@@ -46,6 +45,14 @@ setup.bat
 
  **Note:**
 This script installs required dependencies and registers a Windows Task Scheduler job for the scraper.
+
+## Removing the Scheduled Task
+
+To remove the Windows Task Scheduler job:
+
+```
+remove_task.bat
+```
 
 ## Configuring Auctions
 
@@ -82,14 +89,6 @@ Selenium runs in headless mode
 
 ```
 python -m copartscraper --show-browser
-```
-
-## Removing the Scheduled Task
-
-To remove the Windows Task Scheduler job:
-
-```
-remove_task.bat
 ```
 
 ## Architecture Overview
